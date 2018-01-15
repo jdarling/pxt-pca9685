@@ -1,0 +1,17 @@
+{
+    "name": "pca9685",
+    "version": "0.0.1",
+    "description": "Generic PCA9685 driver for the BBC micro:bit",
+    "dependencies": {
+        "core": "*",
+        "radio": "*"
+    },
+    "files": [
+        "driver.ts",
+        "readme.md"
+    ],
+    "testFiles": [
+      "tests.ts"
+    ],
+    "public": true
+}
