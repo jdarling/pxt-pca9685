@@ -1,67 +1,72 @@
+
 # micro:bit PCA9685 driver
 
 This is an extremely generic PCA9685 driver for the BBC micro:bit and Microsoft MakeCode.
 
 Support for LED, Servo, Continuous Rotation Servo and direct manipulation of the PCA9685 is supported.
 
+## Adding to Project
+
+From within [MakeCode](https://makecode.microbit.org/) select the "Advanced" section.  Click on "Add Package" in the "Search or enter project URL..." section enter "jdarling/pxt-pca9685"
+
 ## Constants
 
-PinNum
+### PinNum
 
-Pin0
-Pin1
-Pin2
-Pin3
-Pin4
-Pin5
-Pin6
-Pin7
-Pin8
-Pin9
-Pin10
-Pin11
-Pin12
-Pin13
-Pin14
-Pin15
+ * Pin0
+ * Pin1
+ * Pin2
+ * Pin3
+ * Pin4
+ * Pin5
+ * Pin6
+ * Pin7
+ * Pin8
+ * Pin9
+ * Pin10
+ * Pin11
+ * Pin12
+ * Pin13
+ * Pin14
+ * Pin15
 
-ServoNum
+### ServoNum
 
-Servo1
-Servo2
-Servo3
-Servo4
-Servo5
-Servo6
-Servo7
-Servo8
-Servo9
-Servo10
-Servo11
-Servo12
-Servo13
-Servo14
-Servo15
-Servo16
+ * Servo1
+ * Servo2
+ * Servo3
+ * Servo4
+ * Servo5
+ * Servo6
+ * Servo7
+ * Servo8
+ * Servo9
+ * Servo10
+ * Servo11
+ * Servo12
+ * Servo13
+ * Servo14
+ * Servo15
+ * Servo16
 
-LEDNum
+### LEDNum
 
-LED1
-LED2
-LED3
-LED4
-LED5
-LED6
-LED7
-LED8
-LED9
-LED10
-LED11
-LED12
-LED13
-LED14
-LED15
-LED16
+ * LED1
+ * LED2
+ * LED3
+ * LED4
+ * LED5
+ * LED6
+ * LED7
+ * LED8
+ * LED9
+ * LED10
+ * LED11
+ * LED12
+ * LED13
+ * LED14
+ * LED15
+ * LED16
 
 ## Servos
 
