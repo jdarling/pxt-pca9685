@@ -3,7 +3,7 @@
  */
 //% weight=100 color=#0fbc11 icon=""
 namespace PCA9685 {
-    let _DEBUG: boolean = true
+    let _DEBUG: boolean = false
     const debug = (msg: string) => {
         if (_DEBUG === true) {
             serial.writeLine(msg)
@@ -176,7 +176,7 @@ namespace PCA9685 {
         LED16 = 16,
     }
 
-    class ServoConfigObject {
+    export class ServoConfigObject {
         id: number;
         pinNumber: number;
         minOffset: number;
@@ -185,14 +185,14 @@ namespace PCA9685 {
         position: number;
     }
 
-    const DefaultServoConfig = new ServoConfigObject();
+    export const DefaultServoConfig = new ServoConfigObject();
     DefaultServoConfig.pinNumber = -1
     DefaultServoConfig.minOffset = 5
     DefaultServoConfig.midOffset = 15
     DefaultServoConfig.maxOffset = 25
     DefaultServoConfig.position = 90
 
-    class ServoConfig {
+    export class ServoConfig {
         id: number;
         pinNumber: number;
         minOffset: number;
@@ -235,7 +235,7 @@ namespace PCA9685 {
         }
     }
 
-    class ChipConfig {
+    export class ChipConfig {
         address: number;
         servos: ServoConfig[];
         freq: number;
@@ -264,7 +264,7 @@ namespace PCA9685 {
         }
     }
 
-    const chips: ChipConfig[] = []
+    export const chips: ChipConfig[] = []
 
     function calcFreqPrescaler(freq: number): number {
         return (25000000 / (freq * chipResolution)) - 1;
