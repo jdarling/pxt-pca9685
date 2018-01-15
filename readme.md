@@ -128,7 +128,7 @@ Maintains the existing chip frequency setup and performs a chip init, see init(c
 ## Example Usage
 
 ```
-let controller = PCA9685.chipAddress("0x40")
+let controller = 0
 input.onButtonPressed(Button.A, () => {
     PCA9685.setServoPosition(PCA9685.ServoNum.Servo1, 0, controller)
     basic.showString("A")
@@ -141,6 +141,7 @@ input.onButtonPressed(Button.AB, () => {
     PCA9685.setServoPosition(PCA9685.ServoNum.Servo1, 90, controller)
     basic.showString("C")
 })
+controller = PCA9685.chipAddress("0x40")
 basic.showNumber(controller)
 PCA9685.init(controller, 60)
 ```
