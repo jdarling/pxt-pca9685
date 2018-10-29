@@ -3,8 +3,6 @@
  */
 //% weight=100 color=#0fbc11 icon=""
 namespace PCA9685 {
-    Math.idiv = Math.idiv || (a, b)=>a/b;
-
     let _DEBUG: boolean = false
     const debug = (msg: string) => {
         if (_DEBUG === true) {
@@ -223,7 +221,7 @@ namespace PCA9685 {
         setOffsetsFromFreq(startFreq: number, stopFreq: number, midFreq: number = -1): void {
             this.minOffset = startFreq // calcFreqOffset(startFreq)
             this.maxOffset = stopFreq // calcFreqOffset(stopFreq)
-            this.midOffset = midFreq > -1 ? midFreq : Math.idiv((stopFreq - startFreq), 2) + startFreq
+            this.midOffset = midFreq > -1 ? midFreq : ((stopFreq - startFreq) / 2) + startFreq
         }
 
         config(): string[] {
@@ -269,7 +267,7 @@ namespace PCA9685 {
     export const chips: ChipConfig[] = []
 
     function calcFreqPrescaler(freq: number): number {
-        return Math.idiv(25000000, (freq * chipResolution)) - 1;
+        return (25000000 / (freq * chipResolution)) - 1;
     }
 
     function stripHexPrefix(str: string): string {
@@ -304,7 +302,7 @@ namespace PCA9685 {
     }
 
     function calcFreqOffset(freq: number, offset: number) {
-        return (Math.idiv((offset * 1000), Math.idiv(1000, freq)) * chipResolution) / 10000
+        return ((offset * 1000) / (1000 / freq) * chipResolution) / 10000
     }
 
     /**
@@ -411,7 +409,7 @@ namespace PCA9685 {
         debug(`Spread ${spread}`)
         servo.position = speed
         speed = Math.abs(speed)
-        const calcOffset: number = Math.idiv((speed * spread), 100)
+        const calcOffset: number = ((speed * spread) / 100)
         debug(`Offset ${calcOffset}`)
         debug(`min ${offsetStart}`)
         debug(`mid ${offsetMid}`)
@@ -437,7 +435,7 @@ namespace PCA9685 {
         maxTimeCs = Math.max(0, maxTimeCs)
         debug(`setServoLimits(${servoNum}, ${minTimeCs}, ${maxTimeCs}, ${chipAddress})`)
         const servo: ServoConfig = chip.servos[servoNum - 1]
-        midTimeCs = midTimeCs > -1 ? midTimeCs : Math.idiv((maxTimeCs - minTimeCs), 2) + minTimeCs
+        midTimeCs = midTimeCs > -1 ? midTimeCs : ((maxTimeCs - minTimeCs) / 2) + minTimeCs
         debug(`midTimeCs ${midTimeCs}`)
         return servo.setOffsetsFromFreq(minTimeCs, maxTimeCs, midTimeCs)
     }
