@@ -43,5 +43,5 @@ void PCA9685::write(char Register, char Value) {
     char WriteBuffer[2];
     WriteBuffer[0] = Register;
     WriteBuffer[1] = Value;
-    i2c.write(chipAddress, WriteBuffer, 2, false);
+    i2c.write(chipAddress * 2, WriteBuffer, 2, false);
 }
