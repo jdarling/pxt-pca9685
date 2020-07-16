@@ -5,7 +5,7 @@ MicroBitDisplay display;
 
 int main() {
     //PCA9685 Name(I2C adress)
-    PCA9685 LedController1(128);
+    PCA9685 LedController1(64);
     LedController1.init(1500);
     while(1){
         LedController1.setPinPulseRange(15, 100);
