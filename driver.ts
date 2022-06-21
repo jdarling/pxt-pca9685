@@ -343,7 +343,7 @@ namespace PCA9685 {
      * @param dutyCycle The duty cycle (0-100) to set the LED to
      */
     //% block
-    export function setLedDutyCycle(ledNum: LEDNum = 1, dutyCycle: number, chipAddress: number = 0x40): void {
+    export function setLedDutyCycle(ledNum: number, dutyCycle: number, chipAddress: number = 0x40): void {
         ledNum = Math.max(1, Math.min(16, ledNum))
         dutyCycle = Math.max(0, Math.min(100, dutyCycle))
         const pwm = (dutyCycle * (chipResolution - 1)) / 100
